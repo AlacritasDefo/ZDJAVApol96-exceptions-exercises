@@ -16,9 +16,10 @@ public class Account {
     public void payIn(float payin) {
         balance = balance + payin;
     }
-
-    public void withdraw(float payout) throws AccountBalanceToLowException {
-        if (balance < payout) {
+    public void withdraw(float payout) throws AccountBalanceToLowException, AmountLessThanZeroException {
+        if (payout < 0) {
+            throw new AmountLessThanZeroException("Podana kwota wypłaty jest mniejsza od 0");
+        }else if (balance < payout) {
             throw new AccountBalanceToLowException("Podana kwota wypłaty jest większa od Stanu konta");
         }
         balance = balance - payout;
@@ -31,5 +32,4 @@ public class Account {
     public void withdrawAll() {
         balance=0;
     }
-
 }

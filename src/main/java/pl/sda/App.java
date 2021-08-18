@@ -11,10 +11,12 @@ public class App
         Account konto1 = new Account(200.0f);
 
         try {
-            konto1.withdraw(250.0f);
+            konto1.withdraw(-50.0f);
         } catch (AccountBalanceToLowException exception) {
             System.out.println(exception.getMessage());
             konto1.withdrawAll();
+        } catch (AmountLessThanZeroException exception) {
+            System.out.println(exception.getMessage());
         }
         System.out.println(konto1.balanceActual());
     }
