@@ -12,7 +12,8 @@ public class App
 
         try {
             konto1.withdraw(250.0f);
-        } catch (AccountBalanceToLowException e) {
+        } catch (AccountBalanceToLowException exception) {
+            System.out.println(exception.getMessage());
             konto1.withdrawAll();
         }
         System.out.println(konto1.balanceActual());
