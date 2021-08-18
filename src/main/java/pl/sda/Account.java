@@ -1,5 +1,11 @@
 package pl.sda;
-
+/*
+Do klasy Account z poprzedniego zadania dodaj
+metodę do zwracania aktualnego stanu konta. W klasie
+Main wywołaj metodę wypłać i obsłuż wyjątek w bloku try /
+catch, jeśli kwota do wypłaty będzie wyższa niż stan konta
+to przechwyć wyjątek i wypłać wszystko co jest na koncie.
+ */
 public class Account {
     private float balance;
 
@@ -17,4 +23,13 @@ public class Account {
         }
         balance = balance - payout;
     }
+
+    public float balanceActual() {
+        return balance;
+    }
+
+    public void withdrawAll() {
+        balance=0;
+    }
+
 }

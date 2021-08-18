@@ -6,14 +6,15 @@ package pl.sda;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) {
 
-        System.out.println( "Hello World!" );
-        throw new UserNotFoundException("ok");
+        Account konto1 = new Account(200.0f);
+
+        try {
+            konto1.withdraw(250.0f);
+        } catch (AccountBalanceToLowException e) {
+            konto1.withdrawAll();
+        }
+        System.out.println(konto1.balanceActual());
     }
-
-
-
-
 }
