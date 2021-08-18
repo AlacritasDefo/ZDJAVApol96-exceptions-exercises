@@ -12,10 +12,9 @@ public class Account {
     }
 
     public void withdraw(float payout) throws AccountBalanceToLowException {
-        balance = balance - payout;
         if (balance < payout) {
             throw new AccountBalanceToLowException("Podana kwota wypłaty jest większa od Stanu konta");
         }
-
+        balance = balance - payout;
     }
 }
