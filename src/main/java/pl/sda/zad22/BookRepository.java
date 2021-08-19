@@ -1,12 +1,14 @@
 package pl.sda.zad22;
 
+import java.util.Arrays;
+
 public class BookRepository {
 
     private Book[] books = new Book[0];
 
     public void addBook(Book book) {
         int idx = books.length;
-        books = new Book[idx + 1];
+        books = Arrays.copyOf(books, idx + 1);
         books[idx] = book;
     }
 

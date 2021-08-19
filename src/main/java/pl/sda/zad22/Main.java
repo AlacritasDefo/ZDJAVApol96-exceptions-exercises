@@ -1,5 +1,7 @@
 package pl.sda.zad22;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         Book book1 = new Book("12332", "A", "author1", 2000);
@@ -15,7 +17,16 @@ public class Main {
         repo.addBook(book4);
         repo.addBook(book5);
 
-        repo.removeBook(book4);
-        System.out.println(repo.getBooks());
+        try {
+            System.out.println(repo.searchBookByISBN("12332"));
+        } catch (NoBookFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+        repo.removeBookByISBN("12334");
+
+        for (Book book : repo.getBooks()) {
+            System.out.println(book);
+        }
     }
 }
